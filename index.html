@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .column{
+                width: 15px;
+                background-color: black;
+                margin-left: 40px;
+                position: absolute;
+                display: flex;
+                transform: rotate(180deg) scaleX(-1);
+            }
+            .button{
+                width: 150px;
+                height: 30px;
+                border-radius: 10px;
+            }
+            #insertion_sort_button{
+                position: absolute;
+                top: 200px;
+                left: 1000px;
+            }
+            #bubble_sort_button{
+                position: absolute;
+                top: 300px;
+                left: 1000px;
+            }
+            #reset_button{
+                position: absolute;
+                top: 400px;
+                left: 1000px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="elements-container">
+            
+        </div>
+        <button class="button" id="insertion_sort_button">
+            start insertion sort
+        </button>
+        <button class="button" id="bubble_sort_button">
+            start bubble sort
+        </button>
+        <button class="button" id="reset_button">
+            Shuffle
+        </button>
+    </body>
+    <script src="./index.js"></script>
+</html>
