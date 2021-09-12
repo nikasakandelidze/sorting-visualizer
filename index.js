@@ -1,11 +1,16 @@
-const elements = [20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1]
-const visualDelay = 20;
+let elements = [20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1]
+const visualDelay = 60;
 
 
 const elementsContainer = document.getElementById('elements-container');
 const insertionSortButton = document.getElementById('insertion_sort_button');
 const bubbleSortButton = document.getElementById('bubble_sort_button')
+const selectionSortButton = document.getElementById('selection_sort_button')
 const resetButton = document.getElementById('reset_button')
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function drawElements(elements){
     let maxElement = Math.max(...elements);
@@ -36,6 +41,9 @@ function setupListeners(){
     });
     bubbleSortButton.addEventListener('click', event => {
         bubbleSort(elements);
+    });
+    selectionSortButton.addEventListener('click', event => {
+        selectionSort(elements);
     });
     resetButton.addEventListener('click', event => {
         shuffleArray(elements);
@@ -75,8 +83,21 @@ async function bubbleSort(inputArr){
     return inputArr;
 };
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+async function selectionSort (array){
+    for(var i = 0; i < array.length; i++){
+      //set min to the current iteration of i
+      var min = i;
+      for(var j = i+1; j < array.length; j++){
+        if(array[j] < array[min]){
+         min = j;
+        }
+      }
+      var temp = array[i];
+      array[i] = array[min];
+      array[min] = temp;
+      window.dispatchEvent(new Event('resize'))
+      await sleep(visualDelay);
+    }
 }
 
 async function shuffleArray(array) {
