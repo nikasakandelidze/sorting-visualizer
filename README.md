@@ -6,4 +6,4 @@ Implemented:
 	2) Bubble sort
 
 # Screenshot
-!(screenshot)[./media/screenshot.png]
+![screenshot](./media/screenshot.png)
